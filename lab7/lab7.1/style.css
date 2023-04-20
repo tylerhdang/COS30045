@@ -1,0 +1,12 @@
+/* Styling the line graph
+.line {
+    fill: none;
+    stroke: slategray;
+    stroke-width: 0.5;
+}*/
+
+.area {
+    fill: slategray;
+    stroke: slategray;
+    stroke-width: 0.5;
+}
