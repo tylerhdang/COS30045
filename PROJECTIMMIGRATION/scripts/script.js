@@ -20,8 +20,7 @@
       .attr("height", h)
       .attr("fill", "#cccccc");
     
-      var tooltip = d3.select("#tooltip")
-      .style("opacity", 0);
+
 
     var zoomLevel = 1;
     var maxZoom = 8;
@@ -79,7 +78,7 @@
               break;
             }
           }
-        }
+        } 
 
 
     svg.selectAll("path")
@@ -97,17 +96,28 @@
       return d.properties.name === "Australia" ? "2" : "0.4";
     })
     .on("mouseover", function (d) {
-      tooltip.transition()
-        .duration(200)
-        .style("opacity", .9);
-      tooltip.html("LGA: " + d.properties.LGA_name + "<br/>Unemployed: " + d.properties.unemployed)
+      d3.select(this)
+        .transition()
+        .duration(100)
+        .style("fill", "#ffffaa");
+
+       d3.select("#tooltip")
+        .style("opacity", 1)
+        .html("<strong>" + d.properties.name + "</strong><br/>" + d.properties.year)
         .style("left", (d3.event.pageX + 10) + "px")
-        .style("top", (d3.event.pageY - 28) + "px");
+        .style("top", (d3.event.pageY - 10) + "px");
     })
     .on("mouseout", function (d) {
-      tooltip.transition()
-        .duration(500)
+      d3.select(this)
+        .transition()
+        .duration(100)
+        .style("fill", function (d) {
+          return color(d.properties.year);
+        });
+
+      d3.select("#tooltip")
         .style("opacity", 0);
+
     });
 
         d3.select("#zoomin")

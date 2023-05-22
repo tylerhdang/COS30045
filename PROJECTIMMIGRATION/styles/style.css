@@ -116,4 +116,14 @@ footer {
   right: 20px;
 }
 
+.tooltip {
+  position: absolute;
+  pointer-events: none;
+  background-color: #fff;
+  padding: 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+}
+
 
