@@ -95,29 +95,31 @@
     .style("stroke-width", function (d) {
       return d.properties.name === "Australia" ? "2" : "0.4";
     })
-    .on("mouseover", function (d) {
-      d3.select(this)
-        .transition()
-        .duration(100)
-        .style("fill", "#ffffaa");
+    .on("mouseover", function (event, d) {
+      var tooltip = d3.select("#tooltip");
+          tooltip.style("visibility", "visible")
+            .html("<b>" + d.properties.name + "</b><br>" +
+                  "Immigration: " + d.properties.year)
+            .style("left", (event.pageX + 10) + "px")
+            .style("top", (event.pageY - 28) + "px");
 
-       d3.select("#tooltip")
-        .style("opacity", 1)
-        .html("<strong>" + d.properties.name + "</strong><br/>" + d.properties.year)
-        .style("left", (d3.event.pageX + 10) + "px")
-        .style("top", (d3.event.pageY - 10) + "px");
+      d3.select(this)
+            .transition()
+            .duration(100)
+            .style("fill", "#ffffaa");
+            
+            
     })
     .on("mouseout", function (d) {
-      d3.select(this)
-        .transition()
-        .duration(100)
-        .style("fill", function (d) {
-          return color(d.properties.year);
-        });
+      var tooltip = d3.select("#tooltip");
+          tooltip.style("visibility", "hidden");
 
-      d3.select("#tooltip")
-        .style("opacity", 0);
-
+          d3.select(this)
+            .transition()
+            .duration(100)
+            .style("fill", function (d) {
+              return color(d.properties.year);
+            });
     });
 
         d3.select("#zoomin")
