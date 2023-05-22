@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Data Visualisation"/>
+    <meta name="keyword" content="HTML, CSS, D3"/>
+    <meta name="author" content="Tyler Dang">
+    <title>Visualisations of Australian Migration</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/script.js"></script>
+</head>
+<body>
+    <h1>The Number of of Migrants in Australian by Country of Birth from 1996 to 2020</h1>
+    <nav>
+        <a href="#">World Map</a>
+        <a href="#">Bar Chart</a>
+        <a href="#">Pie Chart</a>
+        <a href="#">Line Graph</a>
+    </nav>
+
+    <div id="zoom-buttons-container">
+        <button id="zoomin">+</button>
+        <br>
+        <hr>
+
+        <button id="zoomout">-</button>
+    </div>
+
+    <p id="chart"></p>
+    <div id="tooltip" class="tooltip"></div>
+
+    <div class="slidecontainer">
+        <input type="range" min="1996" max="2020" value="1" class="slider" id="slider">
+        <div id="slider-value">1996</div> <!-- Added div for slider value -->
+    </div>
+    <div id ="legends"></div>
+    <br>
+    <bf></bf>
+    
+    <footer>COS30045 Data Visualisation<br>Tyler Dang</footer>
+</body>
+</html>
