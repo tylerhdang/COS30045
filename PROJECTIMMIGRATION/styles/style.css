@@ -1,0 +1,109 @@
+/* Add CSS media queries for responsiveness */
+body {
+    background-color: #bcdfff;
+    height: 100vh; /* Set body height to full viewport height */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Update the SVG width and height to be responsive */
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Update the navigation menu for responsiveness */
+  nav {
+    background-color: #911c1c;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+  
+  nav a {
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  /* Add media query for smaller screens */
+  @media screen and (max-width: 600px) {
+    nav a {
+      font-size: 16px;
+    }
+  }
+
+nav a:hover {
+    background-color: white;
+    color: black;
+}
+
+.slidecontainer {
+    width: 100%; /* Width of the outside container */
+    position: absolute;
+    top: calc(100% + 10%); /* Position it below the chart with a 10px gap */
+}
+
+/* The slider itself */
+.slider {
+    -webkit-appearance: none; /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    border-radius: 12px; /* Make the slider round */
+}
+
+/* Mouse-over effects */
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #000000; /* Black background */
+    cursor: pointer; /* Cursor on hover */
+    border-radius: 50%; /* Make the handle round */
+}
+
+.slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #000000; /* Black background */
+    cursor: pointer; /* Cursor on hover */
+    border-radius: 50%; /* Make the handle round */
+}
+
+/* Update the SVG container to be responsive */
+#chart {
+    width: 100%;
+    height: 70vh;
+  }
+  
+  /* Update the slider container to be responsive */
+  .slidecontainer {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  /* Add media query for smaller screens */
+  @media screen and (max-width: 600px) {
+    #chart {
+      height: 50vh;
+    }
+  
+    .slidecontainer {
+      width: 90%;
+    }
+  }
+  
